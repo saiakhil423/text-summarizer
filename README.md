@@ -75,6 +75,7 @@ node src/index.js ./sample.txt
 
 📄 Summary:
    Tesla reported record profits this quarter driven by strong EV demand.
+   Tesla reported record profits this quarter driven by strong EV demand.
 
 🔑 Key Points:
    1. Strong EV demand
@@ -83,7 +84,8 @@ node src/index.js ./sample.txt
 
 😊 Sentiment:
    POSITIVE
-<img width="1511" height="454" alt="image" src="https://github.com/user-attachments/assets/5609410e-1d4e-4ed8-92e3-b33d66129389" />
+
+![Text Summarizer Output](./assets/image.png)
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
