@@ -30,7 +30,7 @@ You give it messy text. It gives you back:
 
 **1. Clone the repo**
 ```bash
-git clone https://github.com/yourusername/text-summarizer.git
+git clone https://github.com/saiakhil423/text-summarizer.git
 cd text-summarizer
 ```
 
@@ -66,30 +66,8 @@ node src/index.js ./sample.txt
 ---
 
 ## Example Output
-```
-⏳ Analyzing text...
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         📊 TEXT ANALYSIS RESULT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-📄 Summary:
-   Tesla reported record profits this quarter driven by strong EV demand.
-   Tesla reported record profits this quarter driven by strong EV demand.
-
-🔑 Key Points:
-   1. Strong EV demand
-   2. Expansion into new global markets
-   3. Record profits reported
-
-😊 Sentiment:
-   POSITIVE
 
 ![Text Summarizer Output](./assets/image.png)
-
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
 
 ---
 
@@ -125,14 +103,3 @@ text-summarizer/
 - **No test coverage** — out of scope for a 1-2 hour task. Would add Jest tests with more time.
 - **Single text input only** — no batch processing. Straightforward to add but not required.
 - **LLM handles sentiment** — chose this over a separate library like `sentiment` because the LLM understands context. A keyword counter would misread something like "avoided bankruptcy" as negative.
-
----
-
-## What I'd Add With More Time
-
-- Batch processing — summarize multiple files at once
-- Custom output schema — let the user define their own JSON shape via a config file
-- Web UI — simple React frontend to make it accessible to non-technical users
-- Token count display — show how many tokens were used per request
-
----
