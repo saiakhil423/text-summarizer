@@ -74,14 +74,15 @@ node src/index.js ./sample.txt
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 📄 Summary:
-The startup is struggling after a failed product launch and declining investor confidence.
+   Tesla reported record profits this quarter driven by strong EV demand.
 
 🔑 Key Points:
-1. Product launch failed to gain traction
-2. Significant financial losses reported
-3. Investors are concerned about future sustainability
+   1. Strong EV demand
+   2. Expansion into new global markets
+   3. Record profits reported
 
-😊 Sentiment: Negative
+😊 Sentiment:
+   POSITIVE
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
@@ -112,3 +113,22 @@ text-summarizer/
   README.md
 ```
 
+---
+
+## Trade-offs I Made
+
+- **No web UI** — CLI is simpler and meets the brief. A React frontend would add 2+ hours for no real benefit here.
+- **No test coverage** — out of scope for a 1-2 hour task. Would add Jest tests with more time.
+- **Single text input only** — no batch processing. Straightforward to add but not required.
+- **LLM handles sentiment** — chose this over a separate library like `sentiment` because the LLM understands context. A keyword counter would misread something like "avoided bankruptcy" as negative.
+
+---
+
+## What I'd Add With More Time
+
+- Batch processing — summarize multiple files at once
+- Custom output schema — let the user define their own JSON shape via a config file
+- Web UI — simple React frontend to make it accessible to non-technical users
+- Token count display — show how many tokens were used per request
+
+---
