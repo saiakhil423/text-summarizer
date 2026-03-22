@@ -1,0 +1,114 @@
+# Text Summarizer CLI
+
+A command-line tool that takes unstructured text and returns a clean structured summary using an LLM.
+
+Built as part of an AI Developer Intern assignment.
+
+---
+
+## What It Does
+
+You give it messy text. It gives you back:
+- A one-sentence summary
+- Three key points
+- A sentiment label (positive / neutral / negative)
+
+---
+
+## Tech Stack
+
+| Part | Tool | Why |
+|---|---|---|
+| Runtime | Node.js | Simple, no extra setup |
+| LLM API | Groq (llama-3.3-70b-versatile) | Free, fast, reliable JSON output |
+| Terminal colors | Chalk | Makes output readable |
+| Env variables | Dotenv | Keeps API key out of code |
+
+---
+
+## Setup
+
+**1. Clone the repo**
+```bash
+git clone https://github.com/yourusername/text-summarizer.git
+cd text-summarizer
+```
+
+**2. Install dependencies**
+```bash
+npm install
+```
+
+**3. Add your API key**
+```bash
+cp .env.example .env
+```
+Then open `.env` and paste your Groq API key:
+```
+GROQ_API_KEY=your_key_here
+```
+Get a free key at console.groq.com — no credit card needed.
+
+---
+
+## How to Run
+
+**With direct text:**
+```bash
+node src/index.js "Your text here"
+```
+
+**With a file:**
+```bash
+node src/index.js ./sample.txt
+```
+
+---
+
+## Example Output
+```
+⏳ Analyzing text...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         📊 TEXT ANALYSIS RESULT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📄 Summary:
+The startup is struggling after a failed product launch and declining investor confidence.
+
+🔑 Key Points:
+1. Product launch failed to gain traction
+2. Significant financial losses reported
+3. Investors are concerned about future sustainability
+
+😊 Sentiment: Negative
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+---
+
+## Prompt Design
+
+The prompt tells the model three things:
+1. **What it is** — a JSON-only analyst (system prompt)
+2. **What shape to return** — exact JSON structure with an example
+3. **What rules to follow** — one sentence summary, exactly 3 key points, only 3 allowed sentiment values
+
+The strictness is intentional. Without clear rules the model sometimes adds markdown, extra keys, or returns "mostly positive" instead of just "positive" — all of which break JSON parsing.
+
+---
+
+## Project Structure
+```
+text-summarizer/
+  src/
+    index.js      ← entry point, reads input
+    llm.js        ← calls Groq API, parses response
+    prompt.js     ← builds the strict prompt
+    output.js     ← prints result in terminal
+  .env.example
+  package.json
+  README.md
+```
+

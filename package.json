@@ -1,0 +1,18 @@
+{
+  "name": "text-summarizer",
+  "version": "1.0.0",
+  "description": "CLI tool to summarize unstructured text using Groq LLM",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "dotenv": "^17.3.1",
+    "groq-sdk": "^1.1.1"
+  }
+}
